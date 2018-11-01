@@ -10,9 +10,6 @@ SELECT first_name, last_name, address_id FROM customers;
 -- SELECT * FROM table_name; (extracts all data from a table)
 SELECT * FROM employees;
 
-
-
-
 -- using a WHERE clause in a SELECT statement
 
 -- WHERE column_name = 'value';
@@ -31,9 +28,6 @@ SELECT id, first_name, last_name FROM employees
 WHERE id < 2;
 
 
-
-
-
 -- using more than one WHERE clause in a SELECT statemnt
 
 -- SELECT column_name FROM table_name
@@ -50,3 +44,6 @@ SELECT id, first_name, last_name  FROM customers
 WHERE gender = 'F'
 AND first_name = 'Emily'
 AND id > 5;
+
+
+
