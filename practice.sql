@@ -1,5 +1,6 @@
+-- ==============================================================
 -- extracting data from a table using the SELECT command
-
+-- ==============================================================
 -- SELECT column_name FROM tabe_name; (selects one column from a table)
 SELECT wholesale_price FROM products;
 
@@ -70,8 +71,8 @@ WHERE season = 'Summer'
 AND wholesale_price >= 20.00;
 
 -- ==============================================================
-
 -- Using IN, NOT IN in a where clause
+-- ==============================================================
 
 -- When wanting to select a column with more than one value you use IN()
 SELECT * FROM address;
@@ -91,3 +92,36 @@ SELECT * FROM address
 WHERE city NOT IN ('Brighton', 'Worthing');
 
 
+-- ==============================================================
+-- the BETWEEN statement in a where clause
+-- ==============================================================
+SELECT * FROM customers;
+-- gives us all customers where the id is between 5&10
+SELECT * FROM customers
+WHERE id BETWEEN 5 AND 10;
+
+--dates in sql are written 'yyyymmdd'
+SELECT first_name, last_name, date_joined FROM customers
+WHERE date_joined BETWEEN '20160101' AND '20161231';
+
+
+-- ==============================================================
+
+-- ==============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ==============================================================
+
+-- ==============================================================
