@@ -182,3 +182,13 @@ LIMIT 3;
 SELECT * FROM products
 ORDER BY wholesale_price DESC
 LIMIT 5 OFFSET 2;
+
+
+-- ==============================================================
+-- Using the DISTINCT SQL statement
+-- ==============================================================
+SELECT * FROM address;
+-- only shows how many different city values we have (no duplicates)
+SELECT DISTINCT city FROM address; --this gives us 6 cities
+
+SELECT DISTINCT city, street FROM address;
