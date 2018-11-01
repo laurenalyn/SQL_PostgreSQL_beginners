@@ -106,9 +106,24 @@ WHERE date_joined BETWEEN '20160101' AND '20161231';
 
 
 -- ==============================================================
-
+-- the LIKE statement
 -- ==============================================================
+SELECT * FROM products;
 
+-- % means it is lookng for any number of characters on either side of the string
+SELECT * FROM products
+WHERE name LIKE '%Shirt';
+
+SELECT * FROM products
+WHERE name LIKE '%Shi%';
+
+--  _ is looking for only one character followed by ocks on either side of the string
+SELECT * FROM products
+WHERE name LIKE '_ocks';
+-- returns Socks
+SELECT * FROM products
+WHERE name LIKE '_cks';
+-- returns nothing becuase its only looking one character before string
 
 
 
