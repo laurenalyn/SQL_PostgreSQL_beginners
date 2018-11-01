@@ -148,10 +148,26 @@ AND order_date BETWEEN '20170301' AND '20170331';
 
 
 -- ==============================================================
-
+-- Ordering our results set
 -- ==============================================================
+SELECT * FROM orders
+ORDER BY quantity;
+-- puts the table in order by quantity from smallest to largest
+SELECT * from ORDERS
+ORDER BY quantity ASC;
+-- returns in ascending order
 
+SELECT * from ORDERS
+ORDER BY quantity DESC;
+--returns in descending order
 
+SELECT * FROM employees
+ORDER BY last_name ASC;
+-- returns in alphabetical order
+
+SELECT * FROM employees
+ORDER BY last_name DESC;
+-- returns in reverse alphabetical order (z-a)
 
 
 
