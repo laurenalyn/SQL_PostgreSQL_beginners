@@ -68,3 +68,26 @@ AND quantity < 4;
 SELECT * FROM products
 WHERE season = 'Summer'
 AND wholesale_price >= 20.00;
+
+-- ==============================================================
+
+-- Using IN, NOT IN in a where clause
+
+-- When wanting to select a column with more than one value you use IN()
+SELECT * FROM address;
+-- shows address with following cities
+SELECT * FROM address
+WHERE city IN ('Brighton', 'Worthing', 'London', 'Hove');
+
+SELECT * FROM address
+WHERE id IN (2, 5, 7, 9, 10);
+
+--When wanting to select a column that is not equal to a certain value
+SELECT * FROM address
+WHERE id NOT IN (2, 5, 7, 9, 10);
+
+--shows address not in the following cities
+SELECT * FROM address
+WHERE city NOT IN ('Brighton', 'Worthing');
+
+
