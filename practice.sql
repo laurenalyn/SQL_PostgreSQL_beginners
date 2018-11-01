@@ -170,11 +170,15 @@ ORDER BY last_name DESC;
 -- returns in reverse alphabetical order (z-a)
 
 
-
-
-
-
-
 -- ==============================================================
-
+-- Limiting our result set
 -- ==============================================================
+-- limits to 3 highest priced 
+SELECT * FROM products
+ORDER BY wholesale_price DESC
+LIMIT 3;
+
+-- skips first 2 lines and returns the next 5 lines
+SELECT * FROM products
+ORDER BY wholesale_price DESC
+LIMIT 5 OFFSET 2;
