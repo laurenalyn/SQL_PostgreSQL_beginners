@@ -362,3 +362,30 @@ SELECT * FROM customers c
 FULL JOIN address a ON a.id = c.address_id;
 -- 29
 
+-- JOINGING MORE THAN TWO TABLES
+
+SELECT * FROM orders;
+SELECT * FROM products;
+SELECT * FROM address;
+SELECT * FROM customers;
+SELECT * FROM employees;
+
+--retreives data from 3 tables
+SELECT c.id AS customer_id, c.first_name, c.last_name, p.name, o.quantity, o.price, o.order_date FROM orders o
+JOIN products p ON o.product_id = p.id
+JOIN customers c ON o.customer_id = c.id;
+
+--retreives data from 4 tables
+SELECT c.id AS customer_id, c.first_name, c.last_name, a.street, a.postcode, p.name, o.quantity, o.price, o.order_date FROM orders o
+JOIN products p ON o.product_id = p.id
+JOIN customers c ON o.customer_id = c.id
+LEFT JOIN address a ON c.address_id = a.id;
+
+--retreives data from 4 tables with where clauses and ordered
+SELECT c.id AS customer_id, c.first_name, c.last_name, a.street, a.postcode, p.name, o.quantity, o.price, o.order_date FROM orders o
+JOIN products p ON o.product_id = p.id
+JOIN customers c ON o.customer_id = c.id
+LEFT JOIN address a ON c.address_id = a.id
+WHERE a.city = 'Brighton'
+AND p.name = 'Shoes'
+ORDER BY c.first_name;
