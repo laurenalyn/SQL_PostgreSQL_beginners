@@ -192,3 +192,22 @@ SELECT * FROM address;
 SELECT DISTINCT city FROM address; --this gives us 6 cities
 
 SELECT DISTINCT city, street FROM address;
+
+
+-- ==============================================================
+-- Using a column name alias
+-- ==============================================================
+-- changes last_name to surname and pay to pay_per_hour
+SELECT first_name, last_name AS surname, pay AS pay_per_hour FROM employees;
+
+
+SELECT first_name, last_name AS surname, pay AS pay_per_hour FROM employees
+WHERE pay_per_hour > 10.00;
+-- get an error that pay_per_hour doesnt exist in the database - 
+-- for a WHERE clause we have to use the name in the db, 
+-- but we can use the alias name in an ORDER BY statement
+SELECT first_name, last_name AS surname, pay AS pay_per_hour FROM employees
+WHERE pay > 10.00;
+
+SELECT first_name, last_name AS surname, pay AS pay_per_hour FROM employees
+ORDER BY pay_per_hour;
