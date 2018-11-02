@@ -306,7 +306,7 @@ ORDER BY cu.first_name ASC;
 -- LEFT JOIN
 -- only need matching data in table one - address table - 
 SELECT * FROM customers;
-SELECT * FROM orders;
+SELECT * FROM address;
 
 SELECT a.id, a.city, c.first_name, c.last_name, c.address_id FROM address a
 LEFT JOIN customers c ON a.id = c.address_id;
