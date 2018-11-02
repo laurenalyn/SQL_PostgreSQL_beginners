@@ -239,7 +239,7 @@ SELECT first_name, last_name, pay AS pay_per_hour FROM employees;
 
 
 -- ==============================================================
-JOINS:
+-- JOINS
 -- ==============================================================
 -- joins allow you to retreive data from multiple tables in a single SELECT statement
 -- needs to be a related column between tables
@@ -248,7 +248,7 @@ JOINS:
 -- right join will retreive all data from the right table (2) and matchig rows from left table (1)
 -- full join will retreive all data from table 1 and table 2
 
--- INNER JOIN
+-- INNER JOIN PT 1
 
 SELECT customers.first_name, customers.last_name, orders.quantity, orders.price FROM orders
 INNER JOIN customers ON orders.customer_id = customers.id;
@@ -260,3 +260,15 @@ JOIN customers cu ON o.customer_id = cu.id;
 
 SELECT pr.name, o.quantity, o.price FROM orders o
 Join products pr ON o.product_id = pr.id;
+
+-- INNER JOIN PT 2
+
+SELECT * FROM customers;
+SELECT * FROM orders;
+
+SELECT cu.id, cu.first_name, cu.last_name, o.quantity, o.price, o.order_date FROM orders o
+JOIN customers cu ON o.customer_id = cu.id
+-- WHERE cu.first_name = 'John';
+WHERE cu.id IN (2, 4, 6, 8, 9)
+AND o.quantity > 1
+ORDER BY o.order_date DESC;
