@@ -389,3 +389,32 @@ LEFT JOIN address a ON c.address_id = a.id
 WHERE a.city = 'Brighton'
 AND p.name = 'Shoes'
 ORDER BY c.first_name;
+
+
+-- ==============================================================
+-- UNIONS
+-- ==============================================================
+-- combines the results set of two SELECT statements
+-- the SELECT statements must have the same number of columns
+-- and the columns mst be of compatible data types
+
+SELECT * FROM customers;
+SELECT * FROM employees;
+
+SELECT first_name, last_name FROM customers
+UNION
+SELECT first_name, last_name FROM employees;
+
+--UNION will remove duplicate
+--UNION ALL will not remove duplicates
+
+SELECT first_name FROM customers
+UNION ALL
+SELECT first_name FROM employees;
+
+
+SELECT first_name, last_name FROM customers
+WHERE first_name = 'John'
+UNION ALL
+SELECT first_name, last_name FROM employees;
+-- gives us the 3 johns from customers and all 4 employees
