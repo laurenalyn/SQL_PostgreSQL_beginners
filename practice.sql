@@ -272,3 +272,32 @@ JOIN customers cu ON o.customer_id = cu.id
 WHERE cu.id IN (2, 4, 6, 8, 9)
 AND o.quantity > 1
 ORDER BY o.order_date DESC;
+
+
+-- ==============================================================
+-- EXERCISE 1: SELECTING FROM MULTIPLE TABLES
+-- ==============================================================
+--1.Select the name from the products table and the order_date from the orders table
+SELECT pr.name, o.order_date FROM products pr
+INNER JOIN orders o ON pr.id = o.product_id;
+
+--2.Select the first_name and last_name from the customers table and the id from the
+--orders table for orders placed in February 2017, ordered by customer last_name
+--alphabetically z-a
+SELECT * FROM customers;
+SELECT * FROM orders;
+
+SELECT cu.first_name, cu.last_name, o.order_date FROM customers cu
+INNER JOIN orders o ON o.customer_id = cu.id
+WHERE order_date BETWEEN '20170201' AND '20170228'
+ORDER BY cu.last_name DESC;
+
+--3.Select date_joined from the customers table and postcode from the address table
+-- where city is Brighton, ordered by customers first_name alphabetically a-z
+SELECT * FROM customers;
+SELECT * FROM address;
+
+SELECT cu.date_joined, ad.postcode  FROM customers cu
+INNER JOIN address ad ON cu.id = ad.id
+WHERE city = 'Brighton'
+ORDER BY cu.first_name ASC;
