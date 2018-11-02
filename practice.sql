@@ -342,3 +342,23 @@ SELECT * FROM address a
 FULL JOIN customers c ON a.id = c.address_id
 WHERE c.first_name = 'John'
 ORDER BY a.city DESC;
+
+
+-- ==============================================================
+-- EXERCISE 2: SELECTING FROM MULTIPLE TABLES
+-- ==============================================================
+--1. how many rows are returned by a LEFT JOIN between the customer (table 1) and address (table 2)
+SELECT a.id, a.city, c.first_name, c.last_name, c.address_id FROM customers c
+LEFT JOIN address a ON a.id = c.address_id;
+-- 25
+
+--2. how many rows are returned by a RIGHT JOIN between customers (1) and address (2)
+SELECT a.id, a.city, c.first_name, c.last_name, c.address_id FROM customers c
+RIGHT JOIN address a ON a.id = c.address_id;
+-- 28
+
+--3. how many rows are returned by a FULL JOIN between customer (1) and address(2)
+SELECT * FROM customers c
+FULL JOIN address a ON a.id = c.address_id;
+-- 29
+
