@@ -324,3 +324,21 @@ RIGHT JOIN customers c ON a.id = c.address_id;
 
 SELECT a.id, a.city, c.first_name, c.last_name, c.address_id FROM customers c 
 RIGHT JOIN address a ON a.id = c.address_id;
+
+
+
+-- FULL JOIN (OUTTER JOIN)
+
+SELECT * FROM customers;
+SELECT * FROM address
+
+SELECT a.id, a.city, c.first_name, c.last_name, c.address_id FROM customers c
+FULL JOIN address a ON a.id = c.address_id
+WHERE c.first_name = 'John'
+ORDER BY a.city DESC;
+
+-- selects all columns from both tables
+SELECT * FROM address a
+FULL JOIN customers c ON a.id = c.address_id
+WHERE c.first_name = 'John'
+ORDER BY a.city DESC;
