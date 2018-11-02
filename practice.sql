@@ -301,3 +301,16 @@ SELECT cu.date_joined, ad.postcode  FROM customers cu
 INNER JOIN address ad ON cu.id = ad.id
 WHERE city = 'Brighton'
 ORDER BY cu.first_name ASC;
+
+
+-- LEFT JOIN
+-- only need matching data in table one - address table - 
+SELECT * FROM customers;
+SELECT * FROM orders;
+
+SELECT a.id, a.city, c.first_name, c.last_name, c.address_id FROM address a
+LEFT JOIN customers c ON a.id = c.address_id;
+
+SELECT a.id, a.city, c.first_name, c.last_name, c.address_id FROM customers c
+LEFT JOIN address a ON a.id = c.address_id;
+
