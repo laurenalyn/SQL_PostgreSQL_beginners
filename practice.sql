@@ -211,3 +211,26 @@ WHERE pay > 10.00;
 
 SELECT first_name, last_name AS surname, pay AS pay_per_hour FROM employees
 ORDER BY pay_per_hour;
+
+
+-- ==============================================================
+-- Exercise 3:
+-- ==============================================================
+--1. Order the orders table by quantity from highest to lowest
+SELECT * FROM orders
+ORDER BY quantity DESC;
+
+--2. Select only distinct first_name in the customers table and order alphabetically from A - Z
+SELECT DISTINCT first_name FROM customers
+ORDER BY first_name;
+
+--3. Select only the first 5 last_names from the customers table, ordered alphabetically A - Z
+-- where last_name inclused at least 1 's'.
+SELECT last_name FROM customers
+WHERE last_name LIKE '%s%'
+ORDER BY last_name
+LIMIT 5;
+
+--4. Select first_name, last_name, and pay from the employees table but rename the pay 
+-- column to 'pay_per_hour'.
+SELECT first_name, last_name, pay AS pay_per_hour FROM employees;
