@@ -234,3 +234,29 @@ LIMIT 5;
 --4. Select first_name, last_name, and pay from the employees table but rename the pay 
 -- column to 'pay_per_hour'.
 SELECT first_name, last_name, pay AS pay_per_hour FROM employees;
+
+
+
+
+-- ==============================================================
+JOINS:
+-- ==============================================================
+-- joins allow you to retreive data from multiple tables in a single SELECT statement
+-- needs to be a related column between tables
+-- inner join will retreive data from matching rows between table 1 and table 2
+-- left join will retreive all data from the left table (tabe 1) and matching rows from the right table (table 2)
+-- right join will retreive all data from the right table (2) and matchig rows from left table (1)
+-- full join will retreive all data from table 1 and table 2
+
+-- INNER JOIN
+
+SELECT customers.first_name, customers.last_name, orders.quantity, orders.price FROM orders
+INNER JOIN customers ON orders.customer_id = customers.id;
+
+-- short hand
+SELECT cu.id, cu.first_name, cu.last_name, o.quantity, o.price FROM orders o
+JOIN customers cu ON o.customer_id = cu.id;
+-- by default JOIN and INNER JOIN are the same
+
+SELECT pr.name, o.quantity, o.price FROM orders o
+Join products pr ON o.product_id = pr.id;
