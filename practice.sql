@@ -418,3 +418,30 @@ WHERE first_name = 'John'
 UNION ALL
 SELECT first_name, last_name FROM employees;
 -- gives us the 3 johns from customers and all 4 employees
+
+
+-- ==============================================================
+-- EXERCISE 3: SELECTING FROM MULTIPLE TABLES
+-- ==============================================================
+
+--1. Select the first_name and last_name from the customers table, 
+--name and season from the products table and quantity from the 
+--orders table, where city is equal to Worthing
+SELECT c.first_name, c.last_name, p.name, p.season, o.quantity FROM customers c
+JOIN orders o ON o.customer_id = c.id
+JOIN products p ON p.id = o.product_id
+JOIN address a ON a.id = c.address_id
+WHERE a.city = 'Worthing';
+
+--2. Select the quantity, price and order_date from the orders table,
+--name from the product, and street and postcode from the address table
+SELECT o.quantity, o.price, o.order_date, p.name, a.street, a.postcode FROM orders o
+JOIN products p ON p.id = o.product_id
+JOIN customers c ON c.id = o.customer_id
+JOIN address a ON a.id = c.address_id;
+
+
+--3. Select the first_name and last_name from the employees and customers tables using UNION clause
+SELECT first_name, last_name FROM employees
+UNION
+SELECT first_name, last_name FROM customers;
