@@ -452,6 +452,7 @@ SELECT first_name, last_name FROM customers;
 -- AGGREGATE FUNCTIONS
 -- ==============================================================
 
+--COUNT:
 
 --How to use the COUNT function
 --count retreives the number of rows with a value from the targeted column and returns the amount.
@@ -464,3 +465,15 @@ WHERE season = 'Summer'; -- 2
 
 SELECT COUNT(*) FROM orders
 WHERE order_date BETWEEN '20170101' AND '20170131'; --15
+
+
+--MIN & MAX VALUES
+
+SELECT * FROM products;
+SELECT * FROM orders;
+
+--retreives the minimum value from wholesale_price and gives it an alias
+SELECT MIN(wholesale_price)AS cheapest_product FROM products; --10.00
+
+--retreives the maximun value from quantity and gives it an alias
+SELECT MAX(quantity)AS biggest_order FROM orders; --5
