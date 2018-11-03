@@ -477,3 +477,14 @@ SELECT MIN(wholesale_price)AS cheapest_product FROM products; --10.00
 
 --retreives the maximun value from quantity and gives it an alias
 SELECT MAX(quantity)AS biggest_order FROM orders; --5
+
+
+--SUM
+--adds all the values from the targeted column - can only be used on numeric columns
+SELECT * FROM orders;
+SELECT * FROM employees;
+
+SELECT SUM(hours) FROM employees; --460
+
+SELECT SUM(quantity) FROM orders
+WHERE order_date BETWEEN '20170101' AND '20170131'; --28
