@@ -519,3 +519,30 @@ JOIN products p ON o.product_id = p.id
 GROUP BY c.last_name, c.first_name, p.name, o.quantity
 HAVING p.name LIKE '%Shirt%'
 ORDER BY c.last_name;
+
+
+-- ==============================================================
+--EXERCISE: AGGREGATE FUNCTIONS
+-- ==============================================================
+
+--1. Write a query which return the maximun value in the hours column from the employees table
+SELECT MAX(hours) FROM employees; --140
+
+--2. Write a query which will return the number of rows in the address
+--table were city is equal to London
+SELECT COUNT(*) FROM address
+WHERE city = 'London'; --2
+
+--3. What is the total quantity bought in Jan 2017 grouped by each product and order date
+SELECT * FROM orders;
+
+SELECT product_id, order_date, SUM(quantity) FROM orders
+WHERE order_date BETWEEN '20170101' AND '20170131'
+GROUP BY product_id, order_date;
+
+
+--4. What was the average price spent, grouped by each order date, for March 2017?
+SELECT order_date, AVG(price) FROM orders
+GROUP BY order_date
+HAVING order_date BETWEEN '20170301' AND '20170331'
+ORDER BY order_date;
