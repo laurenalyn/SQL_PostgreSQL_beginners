@@ -488,3 +488,15 @@ SELECT SUM(hours) FROM employees; --460
 
 SELECT SUM(quantity) FROM orders
 WHERE order_date BETWEEN '20170101' AND '20170131'; --28
+
+
+-- AVERAGE
+--gives us the average of the targeted numerical column
+SELECT * FROM employees;
+SELECT * FROM orders;
+
+SELECT AVG(pay) FROM employees; --11.1875
+SELECT AVG(price) FROM orders; --44.59
+
+SELECT AVG(price) FROM orders
+WHERE quantity > 1; --39.5
