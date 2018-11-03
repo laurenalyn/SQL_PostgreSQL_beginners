@@ -500,3 +500,22 @@ SELECT AVG(price) FROM orders; --44.59
 
 SELECT AVG(price) FROM orders
 WHERE quantity > 1; --39.5
+
+
+--HAVING
+
+SELECT * FROM orders;
+SELECT * FROM orders
+WHERE customer_id = 8;
+
+SELECT customer_id, SUM(price) FROM orders
+GROUP BY customer_id
+HAVING customer_id = 8;
+
+--retreives data where product name LIKE %Shirt%
+SELECT c.first_name, c.last_name, p.name, o.quantity, SUM(o.price) FROM customers c
+JOIN orders o ON c.id = o.customer_id
+JOIN products p ON o.product_id = p.id
+GROUP BY c.last_name, c.first_name, p.name, o.quantity
+HAVING p.name LIKE '%Shirt%'
+ORDER BY c.last_name;
