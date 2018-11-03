@@ -236,6 +236,7 @@ LIMIT 5;
 SELECT first_name, last_name, pay AS pay_per_hour FROM employees;
 
 
+-- ============================================================================================================================
 
 
 -- ==============================================================
@@ -445,3 +446,21 @@ JOIN address a ON a.id = c.address_id;
 SELECT first_name, last_name FROM employees
 UNION
 SELECT first_name, last_name FROM customers;
+-- ============================================================================================================================
+
+-- ==============================================================
+-- AGGREGATE FUNCTIONS
+-- ==============================================================
+
+
+--How to use the COUNT function
+--count retreives the number of rows with a value from the targeted column and returns the amount.
+SELECT * FROM employees;
+
+SELECT COUNT(*) FROM employees; --4
+--using count with a where clause
+SELECT COUNT(*) FROM products
+WHERE season = 'Summer'; -- 2
+
+SELECT COUNT(*) FROM orders
+WHERE order_date BETWEEN '20170101' AND '20170131'; --15
